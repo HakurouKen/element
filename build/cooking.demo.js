@@ -118,6 +118,8 @@ if (isProd) {
 cooking.add('plugin.CopyWebpackPlugin', new CopyWebpackPlugin([
   { from: 'examples/versions.json' }
 ]));
-cooking.add('plugin.OfflinePlugin', new OfflinePlugin());
+if (!isPlay) {
+  cooking.add('plugin.OfflinePlugin', new OfflinePlugin());
+}
 cooking.add('vue.preserveWhitespace', false);
 module.exports = cooking.resolve();
